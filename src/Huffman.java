@@ -3,12 +3,13 @@ import java.util.HashMap;
 
 public class Huffman
 {
-    static HashMap<Character, Integer> freqMap;
-    static HashMap<Character, String> codeMap;
-    static HuffNode root;
+    public HashMap<Character, Integer> freqMap;
+    public HashMap<Character, String> codeMap;
+    public HuffNode root;
 
-    public static void frequencyCount(String text)
+    public void frequencyCount(String text)
     {
+        freqMap = new HashMap<>();
         for(int i = 0; i < text.length(); i++)
         {
             char c = text.charAt(i);
@@ -16,7 +17,7 @@ public class Huffman
         }
     }
 
-    public static void buildHuffman()
+    public void buildHuffman()
     {
         ArrayList<HuffNode> heap = new ArrayList<>();
 
@@ -48,13 +49,13 @@ public class Huffman
         root = heap.get(0);
     }
 
-    public static void genCode()
+    public void genCode()
     {
         codeMap = new HashMap<>();
         generate(root, "");
     }
 
-    public static void generate(HuffNode node, String code)
+    public void generate(HuffNode node, String code)
     {
         if (node == null)
             return;
@@ -65,11 +66,11 @@ public class Huffman
             return;
         }
 
-        generate(node.left, code + 0);
-        generate(node.right, code + 1);
+        generate(node.left, code + "0");
+        generate(node.right, code + "1");
     }
 
-    public static String encode(String text)
+    public String encode(String text)
     {
         String encoded = "";
         for (int i = 0; i < text.length(); i++)
@@ -80,9 +81,9 @@ public class Huffman
         return encoded;
     }
 
-    public static void printStats(String text)
+    public void printStats(String text)
     {
-        System.out.println("Text(s): " + text);
+        System.out.println("Stats for " + text);
 
         System.out.println("Frequencies: ");
         for (char c: freqMap.keySet())
