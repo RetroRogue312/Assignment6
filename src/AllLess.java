@@ -24,7 +24,7 @@ public class AllLess
         return result;
     }
 
-    public void search(TreeNode root, int x, ArrayList<String> output)
+    public void search(TreeNode<String> root, int x, ArrayList<String> output)
     {
        if (root == null)
            return;

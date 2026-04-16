@@ -1,10 +1,10 @@
-public class TreeNode
+public class TreeNode<T>
 {
-    public String val;
-    public TreeNode left;
-    public TreeNode right;
+    public T val;
+    public TreeNode<T> left;
+    public TreeNode<T> right;
 
-    public TreeNode(String val, TreeNode left, TreeNode right)
+    public TreeNode(T val, TreeNode<T> left, TreeNode<T> right)
     {
         this.val = val;
         this.left = left;
