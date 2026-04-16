@@ -40,17 +40,19 @@ public class EncryptedTree
     {
         if (root == null)
             return false;
+
         if (root.val == t)
             return true;
 
         boolean leftFound = search(root.left, t);
         if (leftFound)
             return true;
+
         boolean rightFound = search(root.right,t);
         if (rightFound)
             return true;
 
-        return true;
+        return false;
     }
 
     public static void main(String[] args)
